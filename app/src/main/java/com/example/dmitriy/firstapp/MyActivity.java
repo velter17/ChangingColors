@@ -1,7 +1,11 @@
 package com.example.dmitriy.firstapp;
 
 import android.app.Activity;
+import android.content.Context;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,38 +17,23 @@ import android.os.Handler;
 
 public class MyActivity extends Activity {
 
-    FrameLayout l;
+    SkyView sky;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my);
-
-        l = (FrameLayout) findViewById(R.id.FrameLayout1);
+        //setContentView(R.layout.activity_my);
+        sky = new SkyView(this);
+        sky.setActivity(this);
+        setContentView(sky);
+       /* l = (FrameLayout) findViewById(R.id.FrameLayout1);
         Timer t = new Timer();
         ColorTimer ct = new ColorTimer();
-        t.schedule(ct, 0, 100);
+        t.schedule(ct, 0, 100);*/
     }
 
-    class ColorTimer extends TimerTask 
-	{
 
-        public void run() 
-		{
 
-            runOnUiThread(new Runnable() 
-			{
-
-                public void run() 
-				{
-                    Random rand = new Random();
-
-                    l.setBackgroundColor(Color.rgb(rand.nextInt(256), rand.nextInt(256), rand.nextInt(256) ));
-
-                }
-            });
-        }
-
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -10,12 +10,4 @@
     android:id="@+id/MyAct"
     android:focusable="false">
 
-    <FrameLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/FrameLayout1">
-
-    </FrameLayout>
 </RelativeLayout>
